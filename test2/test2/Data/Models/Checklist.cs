@@ -6,25 +6,32 @@ namespace Test.Data.Models
     public class Checklist
     {
         [Key]
-        public int? Id_checklist { get; set; }
+        public int IdChecklist { get; set; }
 
-        // Define URL paths for images
-        [MaxLength(255)] 
+        [ForeignKey(nameof(ServerRoom))]
+        public int ServerRoomId { get; set; }
+
+        [MaxLength(255)]
         public string HeatPictureUrl { get; set; }
 
-        [MaxLength(255)] 
+        [MaxLength(255)]
         public string SwitchersPictureUrl { get; set; }
 
         [MaxLength(255)]
         public string Backbone { get; set; }
 
         [MaxLength(255)]
-        public string Ventulation { get; set; }
+        public string Ventilation { get; set; }
 
         [MaxLength(255)]
         public string Security { get; set; }
 
         [MaxLength(255)]
         public string Storage { get; set; }
+
+        public bool State { get; set; }
+
+        public List<Historical> Historicals { get; set; }
+
     }
 }

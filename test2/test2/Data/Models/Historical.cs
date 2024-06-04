@@ -10,18 +10,19 @@ namespace Test.Data.Models
     public class Historical
     {
         [Key]
-        public String Date { get; set; }
+        public int Id { get; set; }  // Added primary key
 
-        [MaxLength(50)]
-        public string Hour { get; set; }
+        public DateTime DateTime { get; set; }  // Combined date and time
 
         [ForeignKey(nameof(User))]
         public int Id_user { get; set; }
-
         public Users User { get; set; }
 
-        [MaxLength(500)]
-        public String PicturesFolderPath { get; set; }
+        [ForeignKey(nameof(Checklist))]
+        public int ChecklistId { get; set; }
+        public Checklist Checklist { get; set; }
 
+        [MaxLength(500)]
+        public string PicturesFolderPath { get; set; }
     }
 }
